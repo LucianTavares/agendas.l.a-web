@@ -45,6 +45,9 @@ export const authService = {
       // Salva o token em um cookie
       setCookie('token', response.data.access_token);
       
+      // Salva os dados do negócio em um cookie
+      setCookie('negocio', JSON.stringify(response.data.negocio));
+      
       // Configura o token para próximas requisições
       api.defaults.headers.common['Authorization'] = `Bearer ${response.data.access_token}`;
       
@@ -57,6 +60,7 @@ export const authService = {
 
   async logout(): Promise<void> {
     deleteCookie('token');
+    deleteCookie('negocio');
     delete api.defaults.headers.common['Authorization'];
   },
 
@@ -64,11 +68,13 @@ export const authService = {
     return !!getCookie('token');
   },
 
-  getNegocioId(): string | null {
+  getNegocio(): { id: string; email: string; nome: string } | null {
     try {
-      return localStorage.getItem('negocioId');
+      const negocioStr = getCookie('negocio');
+      if (!negocioStr) return null;
+      return JSON.parse(negocioStr);
     } catch (error) {
-      console.error('Erro ao obter ID do negócio:', error);
+      console.error('Erro ao obter dados do negócio:', error);
       return null;
     }
   }

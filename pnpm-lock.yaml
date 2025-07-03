@@ -146,6 +146,9 @@ importers:
       react-hook-form:
         specifier: ^7.54.1
         version: 7.57.0(react@19.1.0)
+      react-icons:
+        specifier: ^4.10.1
+        version: 4.12.0(react@19.1.0)
       react-resizable-panels:
         specifier: ^2.1.7
         version: 2.1.9(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -177,6 +180,9 @@ importers:
       '@nestjs/testing':
         specifier: ^10.0.0
         version: 10.4.18(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@10.4.18(@nestjs/common@10.4.18(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2))
+      '@types/axios':
+        specifier: ^0.14.4
+        version: 0.14.4
       '@types/bcrypt':
         specifier: ^5.0.2
         version: 5.0.2
@@ -1571,6 +1577,10 @@ packages:
 
   '@tsconfig/node16@1.0.4':
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
+
+  '@types/axios@0.14.4':
+    resolution: {integrity: sha512-9JgOaunvQdsQ/qW2OPmE5+hCeUB52lQSolecrFrthct55QekhmXEwT203s20RL+UHtCQc15y3VXpby9E7Kkh/g==}
+    deprecated: This is a stub types definition. axios provides its own type definitions, so you do not need this installed.
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -3488,6 +3498,11 @@ packages:
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
+
+  react-icons@4.12.0:
+    resolution: {integrity: sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==}
+    peerDependencies:
+      react: '*'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -5642,6 +5657,12 @@ snapshots:
   '@tsconfig/node14@1.0.3': {}
 
   '@tsconfig/node16@1.0.4': {}
+
+  '@types/axios@0.14.4':
+    dependencies:
+      axios: 1.9.0
+    transitivePeerDependencies:
+      - debug
 
   '@types/babel__core@7.20.5':
     dependencies:
@@ -7804,6 +7825,10 @@ snapshots:
       scheduler: 0.26.0
 
   react-hook-form@7.57.0(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+
+  react-icons@4.12.0(react@19.1.0):
     dependencies:
       react: 19.1.0
 

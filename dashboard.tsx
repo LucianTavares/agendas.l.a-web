@@ -22,7 +22,8 @@ const mockAppointments = [
     clientName: "Ana Paula Silva",
     procedure: "Corte + Escova",
     status: "agendado",
-    professionalId: "1"
+    professionalId: "1",
+    price: 80
   },
   {
     id: "2",
@@ -31,7 +32,8 @@ const mockAppointments = [
     clientName: "Carla Santos",
     procedure: "Coloração",
     status: "confirmado",
-    professionalId: "1"
+    professionalId: "1",
+    price: 120
   },
   {
     id: "3",
@@ -39,8 +41,9 @@ const mockAppointments = [
     endTime: "15:00",
     clientName: "Mariana Costa",
     procedure: "Hidratação",
-    status: "fazendo",
-    professionalId: "1"
+    status: "em_execucao",
+    professionalId: "1",
+    price: 60
   },
   {
     id: "4",
@@ -49,7 +52,8 @@ const mockAppointments = [
     clientName: "Juliana Lima",
     procedure: "Manicure",
     status: "finalizado",
-    professionalId: "2"
+    professionalId: "2",
+    price: 40
   },
   {
     id: "5",
@@ -58,7 +62,8 @@ const mockAppointments = [
     clientName: "Patricia Melo",
     procedure: "Mechas",
     status: "confirmado",
-    professionalId: "2"
+    professionalId: "2",
+    price: 150
   },
   {
     id: "6",
@@ -67,7 +72,8 @@ const mockAppointments = [
     clientName: "Fernanda Santos",
     procedure: "Corte",
     status: "agendado",
-    professionalId: "2"
+    professionalId: "2",
+    price: 50
   },
   {
     id: "7",
@@ -76,7 +82,8 @@ const mockAppointments = [
     clientName: "Beatriz Oliveira",
     procedure: "Design",
     status: "finalizado",
-    professionalId: "3"
+    professionalId: "3",
+    price: 70
   },
   {
     id: "8",
@@ -84,8 +91,9 @@ const mockAppointments = [
     endTime: "13:00",
     clientName: "Amanda Souza",
     procedure: "Limpeza",
-    status: "fazendo",
-    professionalId: "3"
+    status: "em_execucao",
+    professionalId: "3",
+    price: 90
   },
   {
     id: "9",
@@ -94,18 +102,19 @@ const mockAppointments = [
     clientName: "Carolina Dias",
     procedure: "Massagem",
     status: "agendado",
-    professionalId: "3"
+    professionalId: "3",
+    price: 110
   }
 ]
 
 export default function Component() {
   const [appointments] = useState(mockAppointments)
 
-  const totalRevenue = appointments.reduce((sum) => sum + 150, 0) // Valor fictício para exemplo
+  const totalRevenue = appointments.length * 150 // Valor estimado por agendamento
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50">
-      <Header userName="Admin" />
+      <Header />
 
       {/* Agenda do Dia - Componente Principal */}
       <div className="p-6">
@@ -125,7 +134,7 @@ export default function Component() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-gray-900">{appointments.length}</div>
-              <p className="text-xs text-green-600 font-medium">+2 que ontem</p>
+              <p className="text-xs text-green-600 font-medium">+{appointments.length} que ontem</p>
             </CardContent>
           </Card>
 
@@ -135,8 +144,8 @@ export default function Component() {
               <DollarSign className="h-4 w-4 text-purple-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-gray-900">R$ {totalRevenue.toFixed(2).replace(".", ",")}</div>
-              <p className="text-xs text-green-600 font-medium">+15% que ontem</p>
+              <div className="text-2xl font-bold text-gray-900">R$ {totalRevenue.toFixed(2)}</div>
+              <p className="text-xs text-green-600 font-medium">+0% que ontem</p>
             </CardContent>
           </Card>
 
@@ -146,7 +155,7 @@ export default function Component() {
               <Users className="h-4 w-4 text-blue-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-gray-900">{appointments.length}</div>
+              <div className="text-2xl font-bold text-gray-900">0</div>
               <p className="text-xs text-blue-600 font-medium">Únicos hoje</p>
             </CardContent>
           </Card>
@@ -157,8 +166,8 @@ export default function Component() {
               <Clock className="h-4 w-4 text-indigo-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-gray-900">85%</div>
-              <p className="text-xs text-indigo-600 font-medium">Muito boa</p>
+              <div className="text-2xl font-bold text-gray-900">0%</div>
+              <p className="text-xs text-indigo-600 font-medium">Muito baixa</p>
             </CardContent>
           </Card>
         </div>
